@@ -20,3 +20,9 @@ Route::get('/', [MainCotroller::class, 'home'])
 
 Route::get('/produts', [MainCotroller::class, 'products'])
     ->name('products');
+
+// create
+Route::get('/create/product', [MainCotroller::class, 'create'])
+    ->name('create.product');
+Route::get('/store/product', [MainCotroller::class, 'store'])
+    ->name('store.product');
