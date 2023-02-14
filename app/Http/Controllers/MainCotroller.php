@@ -21,4 +21,38 @@ class MainCotroller extends Controller
         $products = Product::all();
         return view('pages.products', compact('products'));
     }
+
+    // create
+    public function create() {
+        $typologies = Typology :: all();
+        $categories = Category :: all();
+
+        return view('pages.createProduct', compact('typologies', 'categories'));
+    }
+
+    public function store(Request $request) {
+        
+        $data = $request -> validate([
+            'name' => 'required|string|max:32',
+            'description' => 'nullable|string',
+            'price' => 'required|integer',
+            'weight' => 'required|integer',
+            'typology_id' => 'required|integer',
+            'categories' => 'required|array'
+        ]);
+
+        $product = New Product();
+
+        $code = rand(10000, 99999);
+        $data['code'] = $code;
+
+        $product -> name = $data ['name'];
+        $product -> description = $data ['description'];
+        $product -> price = $data ['price'];
+        $product -> weight = $data ['weight'];
+        $product -> typology_id = $data ['typology_id'];
+        $product -> categories = $data ['categories'];
+
+        dd($product);
+    }
 }
