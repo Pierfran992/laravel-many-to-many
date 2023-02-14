@@ -3,6 +3,9 @@
 @section('content')
     <h1 class="text-danger mb-3">List Products</h1>
 
+    {{-- creo un bottono per indirizzare l'utente in una pagina dove sono presenti tutti i prodotti --}}
+    <a href="{{ route('products') }}" class="btn btn-danger">ALL PRODUCTS</a>
+
     {{-- Creo la card contenente la categori con l'elenco di tutti i prodotti appartenenti ad essa --}}
     @foreach ($categories as $category)
 

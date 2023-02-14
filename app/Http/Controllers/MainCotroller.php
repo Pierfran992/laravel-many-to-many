@@ -16,4 +16,9 @@ class MainCotroller extends Controller
         $categories = Category::all();
         return view('pages.home', compact('categories'));
     }
+
+    public function products() {
+        $products = Product::all();
+        return view('pages.products', compact('products'));
+    }
 }
