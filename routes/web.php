@@ -24,5 +24,5 @@ Route::get('/produts', [MainCotroller::class, 'products'])
 // create
 Route::get('/create/product', [MainCotroller::class, 'create'])
     ->name('create.product');
-Route::get('/store/product', [MainCotroller::class, 'store'])
+Route::post('/store/product', [MainCotroller::class, 'store'])
     ->name('store.product');
