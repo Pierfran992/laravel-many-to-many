@@ -44,7 +44,7 @@ class MainCotroller extends Controller
         $product = New Product();
 
         $code = rand(10000, 99999);
-        $data['code'] = $code;
+        $product -> code = $data['code'] = $code;
 
         $product -> name = $data ['name'];
         $product -> description = $data ['description'];
@@ -53,6 +53,8 @@ class MainCotroller extends Controller
         $product -> typology_id = $data ['typology_id'];
         $product -> categories = $data ['categories'];
 
+        $product -> make();
         dd($product);
+
     }
 }
