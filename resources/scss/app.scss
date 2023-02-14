@@ -1,0 +1,25 @@
+@import '~bootstrap/scss/bootstrap';
+
+a {
+    text-decoration: none;
+}
+
+.ms_footer,
+.ms_header {
+    background: linear-gradient(90deg, rgba(135, 0, 133, 1) 22%, rgba(125, 18, 179, 1) 43%, rgba(68, 16, 213, 1) 74%, rgba(0, 212, 255, 1) 100%);
+    color: blue;
+    width: 100vw;
+    height: 100px;
+}
+
+.ms_container {
+    width: 80vw;
+    height: calc(100vh - 250px);
+    padding: 50px 0;
+    margin: 0 auto;
+    overflow-y: auto;
+}
+
+.ms_footer {
+    margin-top: 50px;
+}
