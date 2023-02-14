@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Typology extends Model
 {
     use HasFactory;
+
+    // creo la funzione per collegare la table typologies con quella product
+    public function products() {
+        return $this -> hasMany(Product :: class);
+    }
 }
