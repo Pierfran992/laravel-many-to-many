@@ -4,6 +4,17 @@
 
     <h1 class="text-danger">CREATE A NEW PRODUCT</h1>
 
+    {{-- messaggi di errore --}}
+    @if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+    @endif
+
     {{-- creo il form con cui andar a creare il nuovo elemento da inviare al database --}}
     <form method="POST" action="{{route('store.product')}}">
         
@@ -40,7 +51,7 @@
             <h4>Select Category</h4>
             @foreach ($categories as $category)
             <div class="form-check">
-                <input name="categories" class="form-check-input" type="checkbox" value="{{ $category -> id }}" id="flexCheckIndeterminate">
+                <input name="categories[]" class="form-check-input" type="checkbox" value="{{ $category -> id }}" id="flexCheckIndeterminate">
                 <label class="form-check-label" for="categories">
                     {{ $category -> name }}
                 </label>
