@@ -17,7 +17,11 @@ class ProductFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'code' => fake() -> regexify('[A-Za-z0-9]{5}'),
+            'name' => fake() ->  words(2, true),
+            'description' => fake() -> boolean() ? fake() -> text(100) : null,
+            'price' => fake() -> randomNumber(5, false),
+            'weight' => fake() -> randomNumber(5, false),
         ];
     }
 }
