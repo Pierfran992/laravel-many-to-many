@@ -16,7 +16,7 @@
     @endif
 
     {{-- creo il form con cui andar a creare il nuovo elemento da inviare al database --}}
-    <form method="POST" action="{{route('store.product')}}">
+    <form method="POST" action="{{route('store.product')}}" class="p-3">
         
         @csrf
 
@@ -47,16 +47,20 @@
             @endforeach
         </select>
 
-        <div class="ctn_checks">
-            <h4>Select Category</h4>
-            @foreach ($categories as $category)
-            <div class="form-check">
-                <input name="categories[]" class="form-check-input" type="checkbox" value="{{ $category -> id }}" id="flexCheckIndeterminate">
-                <label class="form-check-label" for="categories">
-                    {{ $category -> name }}
-                </label>
+        <div class="card text-center my-5">
+            <div class="card-header">
+                <h4>Select Category</h4>
             </div>
-            @endforeach
+            <div class="card-body d-flex flex-wrap gap-3">
+                @foreach ($categories as $category)
+                <div class="form-check">
+                    <input name="categories[]" class="form-check-input" type="checkbox" value="{{ $category -> id }}" id="flexCheckIndeterminate">
+                    <label class="form-check-label" for="categories">
+                        {{ $category -> name }}
+                    </label>
+                </div>
+                @endforeach
+            </div>
         </div>
 
         <button class="btn btn-danger my-2" type="submit">CREATE</button>
