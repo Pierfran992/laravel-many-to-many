@@ -21,8 +21,14 @@ Route::get('/', [MainCotroller::class, 'home'])
 Route::get('/produts', [MainCotroller::class, 'products'])
     ->name('products');
 
+// delete
+Route::get('/delete/product/{product}', [MainCotroller::class, 'delete'])
+    ->name('delete.product');
+
 // create
 Route::get('/create/product', [MainCotroller::class, 'create'])
     ->name('create.product');
 Route::post('/store/product', [MainCotroller::class, 'store'])
     ->name('store.product');
+
+

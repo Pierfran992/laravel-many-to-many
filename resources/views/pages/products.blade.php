@@ -23,7 +23,15 @@
                     <span>Digital: {{ $product -> typology -> digital ? 'YES' : 'NO' }}</span>
                     <br>
                     <span>Price: {{ $product -> price }}</span>
+                    <br>
+                    {{-- link per eliminare e modificare il prodotto --}}
+                    <a href="{{route('delete.product', $product)}}" class="btn btn-danger">
+                        <i class="fa-solid fa-trash"></i>
+                    </a>
                 </div>
+                {{-- <a href="{{route('edit.product', $product)}}" class="btn btn-danger">
+                    Edit Project
+                </a> --}}
             </div>   
         @endforeach
 

@@ -22,6 +22,13 @@ class MainCotroller extends Controller
         return view('pages.products', compact('products'));
     }
 
+    // delete
+    public function delete(Product $product) {
+        $product -> categories() -> sync([]);
+        $product -> delete();
+        return redirect() -> route('products');
+    }
+
     // create
     public function create() {
         $typologies = Typology :: all();
