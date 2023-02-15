@@ -69,4 +69,12 @@ class MainCotroller extends Controller
         return redirect() -> route('products');
 
     }
+
+    // edit
+    public function edit(Product $product) {
+        $categories = Category :: all();
+        $typologies = Typology :: all();
+
+        return view('pages.editProduct', compact('product', 'categories', 'typologies'));
+    }
 }

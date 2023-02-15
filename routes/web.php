@@ -31,4 +31,10 @@ Route::get('/create/product', [MainCotroller::class, 'create'])
 Route::post('/store/product', [MainCotroller::class, 'store'])
     ->name('store.product');
 
+// edit
+Route::get('/edit/product/{product}', [MainCotroller::class, 'edit'])
+    ->name('edit.product');
+Route::post('/update/product/{product}', [MainCotroller::class, 'update'])
+    ->name('update.product');
+
 
