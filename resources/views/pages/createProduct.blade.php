@@ -4,6 +4,9 @@
 
     <h1 class="text-danger">CREATE A NEW PRODUCT</h1>
 
+    {{-- creo un bottone per far tornare l'utente alla home page --}}
+    <a href="{{ route('home') }}" class="btn btn-danger my-3">HOME</a>
+
     {{-- messaggi di errore --}}
     @if ($errors->any())
     <div class="alert alert-danger">
