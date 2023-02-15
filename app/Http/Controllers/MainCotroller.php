@@ -77,4 +77,30 @@ class MainCotroller extends Controller
 
         return view('pages.editProduct', compact('product', 'categories', 'typologies'));
     }
+
+    public function update(Request $request, Product $product) {
+        $data = $request -> validate([
+            'name' => 'required|string|max:32',
+            'description' => 'nullable|string',
+            'price' => 'required|integer',
+            'weight' => 'required|integer',
+            'typology_id' => 'required|integer',
+            'categories' => 'required|array'
+        ]);
+
+        $product -> name = $data ['name'];
+        $product -> description = $data ['description'];
+        $product -> price = $data ['price'];
+        $product -> weight = $data ['weight'];
+        
+        $typology = Typology :: find($data['typology_id']);
+        $product -> typology() -> associate($typology);
+
+        $product -> save();
+
+        $categories = Category :: find($data['categories']);
+        $product -> categories() -> sync($categories);
+
+        return redirect() -> route('products');
+    }
 }
