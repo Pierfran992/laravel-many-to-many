@@ -44,17 +44,22 @@ class MainCotroller extends Controller
         $product = New Product();
 
         $code = rand(10000, 99999);
-        $product -> code = $data['code'] = $code;
+        $product -> code = $code;
 
         $product -> name = $data ['name'];
         $product -> description = $data ['description'];
         $product -> price = $data ['price'];
         $product -> weight = $data ['weight'];
-        $product -> typology_id = $data ['typology_id'];
-        $product -> categories = $data ['categories'];
+        
+        $typology = Typology :: find($data['typology_id']);
+        $product -> typology() -> associate($typology);
 
-        $product -> make();
-        dd($product);
+        $product -> save();
+
+        $categories = Category :: find($data['categories']);
+        $product -> categories() -> attach($categories);
+
+        return redirect() -> route('products');
 
     }
 }
