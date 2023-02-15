@@ -4,7 +4,16 @@
     <h1 class="text-danger">All Products</h1>
 
     {{-- creo un bottone per far tornare l'utente alla home page --}}
-    <a href="{{ route('home') }}" class="btn btn-danger my-3">HOME</a>
+    <a href="{{ route('home') }}" class="btn btn-danger my-3">
+        <i class="fa-solid fa-igloo"></i>
+        Home
+    </a>
+
+    {{-- creo un bottone per indirizzare l'utente in una pagina dove può creare un nuovo prodotto --}}
+    <a href="{{ route('create.product') }}" class="btn btn-danger">
+        <i class="fa-solid fa-square-plus"></i>
+        New Product
+    </a>
 
     {{-- creo le card per stampare le info sui prodotti --}}
     <div class="d-flex flex-wrap gap-3">
@@ -25,13 +34,15 @@
                     <span>Price: {{ $product -> price }}</span>
                     <br>
                     {{-- link per eliminare e modificare il prodotto --}}
-                    <a href="{{route('delete.product', $product)}}" class="btn btn-danger">
-                        <i class="fa-solid fa-trash"></i>
-                    </a>
+                    <div class="mt-3">
+                        <a href="{{route('delete.product', $product)}}" class="btn btn-danger">
+                            <i class="fa-solid fa-trash"></i>
+                        </a>
+                        <a href="{{route('edit.product', $product)}}" class="btn btn-danger">
+                            <i class="fa-solid fa-pen-to-square"></i>
+                        </a>
+                    </div>
                 </div>
-                {{-- <a href="{{route('edit.product', $product)}}" class="btn btn-danger">
-                    Edit Project
-                </a> --}}
             </div>   
         @endforeach
 

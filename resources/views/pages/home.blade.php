@@ -4,10 +4,16 @@
     <h1 class="text-danger mb-3">List Products</h1>
 
     {{-- creo un bottone per indirizzare l'utente in una pagina dove sono presenti tutti i prodotti --}}
-    <a href="{{ route('products') }}" class="btn btn-danger">ALL PRODUCTS</a>
+    <a href="{{ route('products') }}" class="btn btn-danger">
+        <i class="fa-solid fa-rectangle-list"></i>
+        All Products
+    </a>
 
     {{-- creo un bottone per indirizzare l'utente in una pagina dove può creare un nuovo prodotto --}}
-    <a href="{{ route('create.product') }}" class="btn btn-danger">NEW PRODUCT</a>
+    <a href="{{ route('create.product') }}" class="btn btn-danger">
+        <i class="fa-solid fa-square-plus"></i>
+        New Product
+    </a>
 
     {{-- Creo la card contenente la categori con l'elenco di tutti i prodotti appartenenti ad essa --}}
     @foreach ($categories as $category)

@@ -4,8 +4,11 @@
 
     <h1 class="text-danger">CREATE A NEW PRODUCT</h1>
 
-    {{-- creo un bottone per far tornare l'utente alla home page --}}
-    <a href="{{ route('home') }}" class="btn btn-danger my-3">HOME</a>
+    {{-- creo un bottone per far tornare l'utente alla pagina dei prodotti --}}
+    <a href="{{ route('products') }}" class="btn btn-danger my-3">
+        <i class="fa-solid fa-clipboard-list"></i>
+        List Products
+    </a>
 
     {{-- messaggi di errore --}}
     @if ($errors->any())
@@ -66,7 +69,10 @@
             </div>
         </div>
 
-        <button class="btn btn-danger my-2" type="submit">CREATE</button>
+        <button class="btn btn-danger my-2" type="submit">
+            <i class="fa-solid fa-square-plus"></i>
+            Create
+        </button>
         
     </form>
     
