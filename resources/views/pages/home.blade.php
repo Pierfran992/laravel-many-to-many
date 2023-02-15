@@ -37,6 +37,15 @@
                         <span>Weight: {{ $product -> weight }}</span>
                         <br>
                         <span>Price: {{ $product -> price }}</span>
+                        {{-- link per eliminare e modificare il prodotto --}}
+                        <div class="mt-3">
+                            <a href="{{route('delete.product', $product)}}" class="btn btn-danger">
+                                <i class="fa-solid fa-trash"></i>
+                            </a>
+                            <a href="{{route('edit.product', $product)}}" class="btn btn-danger">
+                                <i class="fa-solid fa-pen-to-square"></i>
+                            </a>
+                        </div>
                     </div>
                 </div>   
             @endforeach
